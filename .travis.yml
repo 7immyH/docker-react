@@ -3,18 +3,17 @@ root: linux
 services:
     - docker
 
-
 before_install:
-    - docker build -t 7immyh/docker-react -f Dockerfile.dev .
+    - docker build -t 7immyh/docker-react -f Dockerfile .
 
 script:
-    - docker run -e CI=true 7immyh/docker-react npm run test
+    - docker run -e CI=true 7immyh/docker-react npm run test --coverage
 
 deploy:
     provider: heroku
     api_key: $HEROKU_API_KEY
     edge: true
-    app: docker-react-th
+    app: docker-react
     on:
         branch: master
     
