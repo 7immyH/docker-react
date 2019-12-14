@@ -13,6 +13,8 @@ script:
 deploy:
     provider: heroku
     api_key:
-        provider: heroku:git
+        provider: heroku
         api_key: HEROKU_API_KEY
-        edge: true # opt in to dpl v2
+        edge: true
+        on:
+            branch: master
