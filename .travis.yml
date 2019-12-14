@@ -3,8 +3,16 @@ sudo: required
 services:
     - docker
 
+
 before_install:
     - docker build -t 7immyh/docker-react -f Dockerfile.dev .
 
 script:
     - docker run -e CI=true 7immyh/docker-react npm run test
+
+deploy:
+    provider: heroku
+    api_key:
+        provider: heroku:git
+        api_key: HEROKU_API_KEY
+        edge: true # opt in to dpl v2
