@@ -12,9 +12,9 @@ script:
 
 deploy:
     provider: heroku
-    api_key:
-        provider: heroku
-        api_key: HEROKU_API_KEY
-        edge: true
-        on:
-            branch: master
+    api_key: HEROKU_API_KEY
+    edge: true
+    app: docker-react-th
+    on:
+        branch: master
+    
